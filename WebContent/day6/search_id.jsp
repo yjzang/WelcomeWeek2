@@ -7,21 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%	
 
-	String zip1 = request.getParameter("zip1");
-	String zip2 = request.getParameter("zip2");
-	
-	if(zip1==null||zip2==null||zip1.equals("")||zip2.equals("")){
+ <%
+ 	String id= request.getParameter("id");
+	 	if(id.equals("admin")){
 		
-		response.sendRedirect("zip_check.jsp?check=0");
-		
-	}	else {
-		
-		response.sendRedirect("zip_check.jsp?check=1");
-	}
-		
-		
-%>
+	 		response.sendRedirect("id_check.jsp?check=0&id="+id);
+	 		
+	 	} else if(id.equals("user")){
+	 		response.sendRedirect("id_check.jsp?check=1&id="+id);
+	 		
+	 	} else{
+	 		response.sendRedirect("id_check.jsp?check=1&id="+id);
+	 	}
+ %>
 </body>
 </html>

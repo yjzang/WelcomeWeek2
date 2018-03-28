@@ -7,21 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%	
-
-	String zip1 = request.getParameter("zip1");
-	String zip2 = request.getParameter("zip2");
+<form action="process_upload.jsp" method="post" enctype="multipart/form-data"> <!-- 파일을 업로드 할 때 쓰는 enctype -->
+	<input type = "text" name="title" size="5">
+	<input type ="file" name= "file1">
+	<input type ="submit" value= "업로드">
 	
-	if(zip1==null||zip2==null||zip1.equals("")||zip2.equals("")){
-		
-		response.sendRedirect("zip_check.jsp?check=0");
-		
-	}	else {
-		
-		response.sendRedirect("zip_check.jsp?check=1");
-	}
-		
-		
-%>
+	<!-- 폼 필드  -->
+
+</form>
 </body>
 </html>
