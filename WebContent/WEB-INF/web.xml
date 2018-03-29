@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" 
+					   xmlns:xml="http://www.w3.org/XML/1998/namespace"
+					   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+					   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_0.xsd ">  
+					  												<!-- 스키마 주소 -->   
+					    
+				<!--스키마에서 지정한 이름대로 태그를 사용해야한다. 이미 다 쓰는 방식과 양식이 선언 되어 있음  -->
+				
+				<context-param>
+					<param-name>dbInfo</param-name>
+					<param-value>jdbcURL</param-value>
+				</context-param>
+				
+				<servlet>
+					<servlet-name>myServlet</servlet-name> <!-- 서블릿 이름 정하기. 관례적으로 클래스이름은 첫글자 대문자, 서블렛 이름은 첫글자 소문자로 써서 구분한다. 뒤에는 똑같이 씀 -->
+					<servlet-class>kr.co.bit.day7.MyServlet</servlet-class>   <!-- 클래스에 서블릿 이름 부여하기. 이 주소에 있는 class를 myServlet 이라는 이름으로 부르기로 하자-->
+					<init-param>
+						<param-name>data</param-name>
+						<param-value>10</param-value>
+					</init-param>
+				</servlet>
+				<servlet-mapping>  	<!-- 맵핑 : url 주소를 부여하는 것 -->
+					<servlet-name>myServlet</servlet-name>  <!-- myServlet 이라는 이름가진 class 데려와서-->
+					<url-pattern>/myServlet</url-pattern>  	<!-- 이 class 요청할 때는 이 url 주소를 써라. 이제 클래스에 서블릿 네임 부여와  서블릿맵핑(주소부여)이 끝낫으니 class는 servlet화 되었다고 볼 수 있다. 이제 html에서 갖다쓸수있음 -->
+				
+				</servlet-mapping>
+				
+				<servlet>
+					<servlet-name>yourServlet</servlet-name>
+					<servlet-class>kr.co.bit.day7.YourServlet</servlet-class>
+				</servlet>
+				<servlet-mapping>
+					<servlet-name>yourServlet</servlet-name>
+					<url-pattern>/yourServlet</url-pattern> <!-- 내가 정해주는 이름 -->
+				
+				</servlet-mapping>
+				
+				
+</web-app>
